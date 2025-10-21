@@ -3,28 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Онлайн-займы — МФО.ПРО</title>
+<title>МФО.ПРО — Онлайн-займы</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --main-color:#1E90FF;
   --bg-gradient: linear-gradient(135deg, #e0f7fa, #ffffff);
   --text-color:#222;
-  --radius:10px;
+  --radius:12px;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Inter',sans-serif;background:var(--bg-gradient);color:var(--text-color);overflow-x:hidden;position:relative;}
 
-/* Фоновые облака/круги */
+/* Фоновые облака */
 .background-circle{
   position:absolute;
   border-radius:50%;
   opacity:0.15;
-  animation: float 30s linear infinite;
+  animation: float 35s linear infinite;
 }
-.background-circle:nth-child(1){width:250px;height:250px;background:#1E90FF;top:10%;left:5%;}
-.background-circle:nth-child(2){width:180px;height:180px;background:#00BFA5;top:60%;left:75%;}
-.background-circle:nth-child(3){width:120px;height:120px;background:#00BCD4;top:30%;left:50%;}
+.background-circle:nth-child(1){width:250px;height:250px;background:#1E90FF;top:5%;left:5%;}
+.background-circle:nth-child(2){width:180px;height:180px;background:#00BFA5;top:50%;left:75%;}
+.background-circle:nth-child(3){width:120px;height:120px;background:#00BCD4;top:25%;left:50%;}
 @keyframes float{
   0%{transform:translate(0,0);}
   50%{transform:translate(20px,20px);}
@@ -46,24 +46,23 @@ nav a:hover{color:var(--main-color);}
 
 /* Предложения */
 .offers{text-align:center;padding:60px 20px;position:relative;z-index:2;}
-.offer-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:25px;margin-top:30px;}
-.offer{background:#fff;padding:25px;border-radius:var(--radius);width:280px;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:.3s; text-decoration:none; color:inherit; position:relative;}
+.offer-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:20px;margin-top:30px;}
+.offer{background:#fff;padding:20px;border-radius:var(--radius);width:260px;box-shadow:0 4px 15px rgba(0,0,0,0.08);transition:.3s; text-decoration:none; color:inherit; position:relative;}
 .offer:hover{transform:translateY(-5px) scale(1.02);box-shadow:0 8px 20px rgba(0,0,0,0.15);}
-.offer img{width:80px;height:80px;margin-bottom:10px;border-radius:10px;}
-.offer h3{margin-bottom:10px;color:#111;position:relative;padding:5px 10px;border-radius:15px;background:rgba(30,144,255,0.15);}
+.offer img{width:100px;height:100px;margin-bottom:10px;border-radius:12px;}
+.offer h3{margin-bottom:8px;color:#111;position:relative;padding:8px 12px;border-radius:20px;background:rgba(30,144,255,0.15);}
 .offer p{font-size:.95em;color:#555;}
 .offer .rating{font-size:0.9em;color:#f1c40f;margin-top:5px;}
 
 /* Блок преимуществ */
-.advantages{background:#fff;padding:60px 20px;text-align:center;position:relative;z-index:2;}
-.adv-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;margin-top:30px;}
+.advantages{background:#fff;padding:50px 20px;text-align:center;position:relative;z-index:2;}
+.adv-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:30px;}
 .adv-item{width:200px;text-align:center;}
-.adv-item img{width:60px;margin-bottom:10px;}
 
 /* Как это работает */
-.how{background:#fff;padding:60px 20px;text-align:center;position:relative;z-index:2;}
-.steps{display:flex;justify-content:center;flex-wrap:wrap;gap:30px;margin-top:30px;}
-.step{width:180px;text-align:center;}
+.how{background:#fff;padding:50px 20px;text-align:center;position:relative;z-index:2;}
+.steps{display:flex;justify-content:center;flex-wrap:wrap;gap:20px;margin-top:30px;}
+.step{width:160px;text-align:center;}
 .step span{display:inline-block;background:var(--main-color);color:#fff;font-size:1.3em;font-weight:600;width:40px;height:40px;line-height:40px;border-radius:50%;margin-bottom:10px;}
 
 /* Футер */
@@ -98,35 +97,35 @@ footer p:last-child{font-size:0.8em;color:#777;margin-top:10px;}
   <div class="offer-grid">
 
     <a href="https://refk.in/05gxd" target="_blank" class="offer">
-      <img src="https://cdn-icons-png.flaticon.com/512/214/214344.png" alt="еКапуста">
+      <img src="ekapusta.png" alt="еКапуста">
       <h3>еКапуста</h3>
       <p>До 30 000 ₽, первый займ под 0 %.</p>
       <div class="rating">⭐ 4.8 / 5</div>
     </a>
 
     <a href="https://refk.in/05h9h" target="_blank" class="offer">
-      <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="МикроЗайм">
+      <img src="microzaim.png" alt="МикроЗайм">
       <h3>МикроЗайм</h3>
       <p>Одобрение за 5 минут, перевод на карту онлайн.</p>
       <div class="rating">⭐ 4.7 / 5</div>
     </a>
 
     <a href="https://refk.in/05h9i" target="_blank" class="offer">
-      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135706.png" alt="Lime">
+      <img src="lime.png" alt="Lime">
       <h3>Lime</h3>
       <p>До 50 000 ₽ без справок и поручителей.</p>
       <div class="rating">⭐ 4.9 / 5</div>
     </a>
 
     <a href="https://refk.in/05h9j" target="_blank" class="offer">
-      <img src="https://cdn-icons-png.flaticon.com/512/2920/2920204.png" alt="Max.Credit">
+      <img src="maxcredit.png" alt="Max.Credit">
       <h3>Max.Credit</h3>
       <p>Одобрение за 2 минуты, без скрытых комиссий.</p>
       <div class="rating">⭐ 4.6 / 5</div>
     </a>
 
     <a href="https://refk.in/05h9k" target="_blank" class="offer">
-      <img src="https://cdn-icons-png.flaticon.com/512/1183/1183672.png" alt="Rocketman">
+      <img src="rocketman.png" alt="Rocketman">
       <h3>Rocketman</h3>
       <p>Займ под 0 % новым клиентам. Получите деньги сегодня.</p>
       <div class="rating">⭐ 4.8 / 5</div>
@@ -139,17 +138,14 @@ footer p:last-child{font-size:0.8em;color:#777;margin-top:10px;}
   <h2>Почему выбирают МФО.ПРО</h2>
   <div class="adv-grid">
     <div class="adv-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/992/992703.png" alt="Быстро">
       <h4>Моментальное одобрение</h4>
       <p>Решение за 2 минуты без звонков и справок</p>
     </div>
     <div class="adv-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/1170/1170576.png" alt="Удобно">
       <h4>Просто и удобно</h4>
       <p>Всё оформление онлайн с телефона или компьютера</p>
     </div>
     <div class="adv-item">
-      <img src="https://cdn-icons-png.flaticon.com/512/2092/2092688.png" alt="Надёжно">
       <h4>Надёжные партнёры</h4>
       <p>Сотрудничаем только с проверенными МФО</p>
     </div>
