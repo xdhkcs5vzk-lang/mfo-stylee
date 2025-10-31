@@ -1,340 +1,198 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>ФинПодбор — сервис сравнения МФО</title>
-
-<!-- Встроенный фавикон (SVG Data URL) -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231E90FF'/ %3E%3Ctext x='50' y='58' font-size='48' text-anchor='middle' font-family='Arial' fill='white'%3EFP%3C/text%3E%3C/svg%3E">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Подбор финансовых предложений онлайн</title>
 
 <style>
-:root{
-  --bg:#f5f8ff;
-  --card:#ffffff;
-  --accent:#1E90FF;
-  --muted:#6b7280;
-  --radius:12px;
-  --shadow: 0 8px 24px rgba(16,24,40,0.06);
-  --soft-shadow: 0 4px 12px rgba(16,24,40,0.05);
-  --gold:#d6a93b;
-  --max-width:980px;
-  --gap:14px;
-  --font-sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f8fc;
 }
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  background:var(--bg);
-  font-family:var(--font-sans);
-  color:#111827;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.45;
-  padding-bottom:40px;
+header {
+  background: #2b476d;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
 }
-.header{
-  background:#fff;
-  border-bottom:1px solid #e6eefc;
-  position:sticky;
-  top:0;
-  z-index:40;
+.container {
+  max-width: 650px;
+  margin: auto;
+  padding: 20px;
 }
-.header-inner{
-  max-width:var(--max-width);
-  margin:0 auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:14px;
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
 }
-.brand{font-weight:700;color:var(--accent);font-size:18px}
-.nav a{color:var(--muted);text-decoration:none;margin-left:12px;font-weight:600}
-.container{
-  max-width:var(--max-width);
-  margin:22px auto;
-  padding:0 16px;
+.card h3 {
+  margin-top: 0;
+  color: #274863;
 }
-
-/* hero */
-.hero{
-  background:linear-gradient(180deg, rgba(30,144,255,0.08), rgba(227,241,255,0.6));
-  padding:28px;
-  border-radius:14px;
-  box-shadow:var(--soft-shadow);
+.card p {
+  font-size: 14px;
+  color: #555;
 }
-.hero h1{margin:0 0 8px;font-size:20px}
-.hero p{margin:0;color:var(--muted);font-size:15px}
-
-/* grid */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--gap);margin-top:18px}
-
-/* card */
-.card{
-  background:var(--card);
-  border-radius:12px;
-  padding:16px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  border:1px solid #eaf3ff;
-  box-shadow:var(--soft-shadow);
-  transition:transform .18s ease, box-shadow .18s ease;
+.btn {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  background: #4ba96f;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
 }
-.card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-.card-top{display:flex;align-items:center;gap:12px}
-.icon-wrap{
-  width:72px;height:72px;border-radius:10px;
-  background:linear-gradient(135deg, rgba(30,144,255,0.12), rgba(0,191,165,0.07));
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
+.info-block {
+  font-size: 14px;
+  background: #eef4ff;
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
-.icon-svg{width:44px;height:44px}
-
-/* cloud title */
-.cloud{
-  display:inline-block;
-  margin-top:10px;
-  background:rgba(30,144,255,0.12);
-  padding:8px 12px;border-radius:999px;
-  font-weight:700;
-  color:#05204A;
-  box-shadow:0 4px 12px rgba(14,30,60,0.04);
-  animation: cloudFloat 3.2s ease-in-out infinite;
-  font-size:15px;
+footer {
+  background: #e9eef3;
+  padding: 20px;
+  text-align: center;
+  font-size: 13px;
+  border-top: 1px solid #cad4df;
+  margin-top: 30px;
 }
-@keyframes cloudFloat{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-6px)}
-  100%{transform:translateY(0)}
+a.links {
+  color: #2b476d;
+  text-decoration: none;
+}
+.small {
+  font-size: 11px;
+  color: #777;
 }
 
-.card-desc{color:var(--muted);font-size:14px;margin-top:10px}
-.card-cta{
-  margin-top:14px;display:flex;justify-content:space-between;align-items:center;
+/* Modal windows */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.55);
 }
-.btn{
-  background:var(--accent);
-  color:white;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;
-  box-shadow:0 6px 18px rgba(30,144,255,0.12);
+.modal-content {
+  background: #fff;
+  max-width: 500px;
+  margin: 12% auto;
+  padding: 20px;
+  border-radius: 10px;
+  line-height: 1.6;
 }
-.note{font-size:13px;color:var(--muted);margin-top:18px;text-align:center}
-
-/* features */
-.section{margin-top:22px}
-.section h3{margin:0 0 8px;font-size:18px;color:#0b2545}
-.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-.feature{
-  background:linear-gradient(180deg,#fff,#fbfdff);
-  padding:12px;border-radius:10px;border:1px solid #e8f2ff;font-size:14px;color:var(--muted);
-}
-
-/* about/privacy */
-.article{background:var(--card);padding:16px;border-radius:12px;border:1px solid #eaf3ff;margin-top:12px;box-shadow:var(--soft-shadow)}
-.article h4{margin:0 0 8px}
-.article p{margin:0;color:var(--muted);line-height:1.5}
-
-/* footer */
-.footer{max-width:var(--max-width);margin:28px auto 60px;padding:0 16px}
-.footer .legal{background:#fff;padding:14px;border-radius:10px;border:1px solid #eef6ff;color:var(--muted);font-size:13px}
-.contact-row{display:flex;gap:18px;flex-wrap:wrap;margin-top:10px;font-size:14px;color:var(--muted)}
-
-/* responsive tweaks */
-@media (max-width:420px){
-  .icon-wrap{width:60px;height:60px}
-  .cloud{font-size:14px;padding:6px 10px}
-  .btn{padding:10px 12px}
-  .hero h1{font-size:18px}
+.close {
+  float: right;
+  font-size: 22px;
+  cursor: pointer;
 }
 </style>
 </head>
+
 <body>
 
-<header class="header" role="banner">
-  <div class="header-inner">
-    <div class="brand">ФинПодбор</div>
-    <nav class="nav" aria-label="Навигация">
-      <a href="#offers">Предложения</a>
-      <a href="#features">Особенности</a>
-      <a href="#about">О сервисе</a>
-    </nav>
-  </div>
-</header>
+<header>Онлайн подбор финансовых предложений</header>
 
-<main class="container" role="main">
+<div class="container">
 
-  <!-- HERO -->
-  <section class="hero" aria-labelledby="hero-title">
-    <h1 id="hero-title">Сравнение предложений микрофинансовых организаций</h1>
-    <p>Информационный сервис помогает подобрать подходящие предложения и перейти на официальный сайт выбранного партнёра. Сервис не выдаёт займы.</p>
-  </section>
+<div class="info-block">
+Мы — информационный сервис. Помогаем подобрать предложения микрофинансирования и кредитования.  
+Не выдаём займы и не принимаем решения по заявкам.
+</div>
 
-  <!-- CARDS / OFFERS -->
-  <section id="offers" class="section" aria-labelledby="offers-title">
-    <h3 id="offers-title" style="margin-bottom:10px">Доступные предложения</h3>
+<div class="card">
+<h3>еКапуста</h3>
+<p>Онлайн оформление. Решение на сайте партнёра</p>
+<a class="btn" href="https://refk.in/05gxd" target="_blank">Перейти на сайт</a>
+</div>
 
-    <div class="grid">
+<div class="card">
+<h3>МикроЗайм</h3>
+<p>Минимум документов. Переход на официальный сайт</p>
+<a class="btn" href="https://refk.in/05h9h" target="_blank">Перейти на сайт</a>
+</div>
 
-      <!-- eKapusta -->
-      <article class="card" role="article" aria-labelledby="c1">
-        <div class="card-top">
-          <div class="icon-wrap" aria-hidden="true">
-            <!-- simple lime slice svg -->
-            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="12" cy="12" r="9" fill="#E9FDF0"/>
-              <path d="M12 3c2 2 4.5 2.5 6.5 3.2-2 3-5 5-6.5 5s-4.5-2-6.5-5C7.5 5.5 10 5 12 3z" fill="#C9F08B"/>
-              <circle cx="12" cy="12" r="9" stroke="#8FD14C" stroke-width="1"/>
-            </svg>
-          </div>
-          <div>
-            <div id="c1" class="cloud">еКапуста</div>
-            <div class="card-desc">Проверенный сервис онлайн-заявок. Условия уточняйте на сайте партнёра.</div>
-          </div>
-        </div>
-        <div class="card-cta">
-          <div style="color:var(--muted);font-weight:600">Рейтинг: 4.8</div>
-          <a class="btn" href="https://refk.in/05gxd" target="_blank" rel="noopener noreferrer">Перейти</a>
-        </div>
-      </article>
+<div class="card">
+<h3>Lime</h3>
+<p>Рассмотрение и оформление онлайн</p>
+<a class="btn" href="https://refk.in/05h9i" target="_blank">Перейти на сайт</a>
+</div>
 
-      <!-- MicroZaim -->
-      <article class="card" role="article" aria-labelledby="c2">
-        <div class="card-top">
-          <div class="icon-wrap" aria-hidden="true">
-            <!-- briefcase svg -->
-            <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="3" y="7" width="18" height="12" rx="2" fill="#FEF9F0"/>
-              <path d="M8 7V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1" stroke="#90A4AE" stroke-width="1.2" fill="none"/>
-              <rect x="3" y="7" width="18" height="12" rx="2" stroke="#9AAAB3" stroke-width="1"/>
-            </svg>
-          </div>
-          <div>
-            <div id="c2" class="cloud">МикроЗайм</div>
-            <div class="card-desc">Онлайн-заявка и предварительное решение на сайте партнёра.</div>
-          </div>
-        </div>
-        <div class="card-cta">
-          <div style="color:var(--muted);font-weight:600">Рейтинг: 4.7</div>
-          <a class="btn" href="https://refk.in/05h9h" target="_blank" rel="noopener noreferrer">Перейти</a>
-        </div>
-      </article>
+<div class="card">
+<h3>Max.Credit</h3>
+<p>Удобные условия погашения</p>
+<a class="btn" href="https://refk.in/05h9j" target="_blank">Перейти на сайт</a>
+</div>
 
-      <!-- Lime -->
-      <article class="card" role="article" aria-labelledby="c3">
-        <div class="card-top">
-          <div class="icon-wrap" aria-hidden="true">
-            <!-- green circle simple icon -->
-            <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="12" cy="12" r="10" fill="#E8FFF2"/>
-              <circle cx="12" cy="12" r="7" fill="#C9F08B"/>
-              <circle cx="12" cy="12" r="10" stroke="#7FCF4A" stroke-width="1"/>
-            </svg>
-          </div>
-          <div>
-            <div id="c3" class="cloud">Lime</div>
-            <div class="card-desc">Варианты займов до 50 000 ₽. Уточняйте условия у партнёра.</div>
-          </div>
-        </div>
-        <div class="card-cta">
-          <div style="color:var(--muted);font-weight:600">Рейтинг: 4.9</div>
-          <a class="btn" href="https://refk.in/05h9i" target="_blank" rel="noopener noreferrer">Перейти</a>
-        </div>
-      </article>
+<div class="card">
+<h3>Rocketman</h3>
+<p>Переход на официальный сайт компании</p>
+<a class="btn" href="https://refk.in/05h9k" target="_blank">Перейти на сайт</a>
+</div>
 
-      <!-- Max.Credit -->
-      <article class="card" role="article" aria-labelledby="c4">
-        <div class="card-top">
-          <div class="icon-wrap" aria-hidden="true">
-            <!-- simple bank/check svg -->
-            <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="3" y="6" width="18" height="5" rx="1" fill="#F0F8FF"/>
-              <path d="M4 11v5h16v-5" stroke="#9AAAB3" stroke-width="1.1" fill="none"/>
-              <rect x="8" y="13" width="3" height="2" fill="#9FB6D6"/>
-            </svg>
-          </div>
-          <div>
-            <div id="c4" class="cloud">Max.Credit</div>
-            <div class="card-desc">Заявка онлайн, условия и детали — на сайте партнёра.</div>
-          </div>
-        </div>
-        <div class="card-cta">
-          <div style="color:var(--muted);font-weight:600">Рейтинг: 4.6</div>
-          <a class="btn" href="https://refk.in/05h9j" target="_blank" rel="noopener noreferrer">Перейти</a>
-        </div>
-      </article>
+</div>
 
-      <!-- Rocketman -->
-      <article class="card" role="article" aria-labelledby="c5">
-        <div class="card-top">
-          <div class="icon-wrap" aria-hidden="true">
-            <!-- rocket svg -->
-            <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M6 14c0 0 4-4 8-8s8-8 8-8" fill="none"/>
-              <circle cx="12" cy="12" r="9" fill="#FFF7F0"/>
-              <path d="M7 17c2-2 6-6 10-10" stroke="#F27C5F" stroke-width="1" fill="none"/>
-              <path d="M12 7a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" fill="#FF8A65"/>
-            </svg>
-          </div>
-          <div>
-            <div id="c5" class="cloud">Rocketman</div>
-            <div class="card-desc">Информация о текущих акциях и условиях у партнёра.</div>
-          </div>
-        </div>
-        <div class="card-cta">
-          <div style="color:var(--muted);font-weight:600">Рейтинг: 4.8</div>
-          <a class="btn" href="https://refk.in/05h9k" target="_blank" rel="noopener noreferrer">Перейти</a>
-        </div>
-      </article>
+<footer>
+<p><strong>Самозанятый: Округин С.Е.</strong></p>
+<p>Тел.: +7 (901) 555-44-22 | Email: info@mail.ru</p>
+<p>Москва, Россия</p>
 
-    </div>
-    <div class="note">Нажимая «Перейти», вы переходите на официальный сайт партнёра.</div>
-  </section>
+<p>
+<a class="links" href="#" onclick="openModal('privacy')">Политика конфиденциальности</a> |
+<a class="links" href="#" onclick="openModal('agreement')">Пользовательское соглашение</a>
+</p>
 
-  <!-- FEATURES -->
-  <section id="features" class="section">
-    <h3 style="margin-bottom:10px">Особенности и преимущества</h3>
-    <div class="features-grid">
-      <div class="feature"><strong>Нейросетевая система подбора.</strong> Анализирует условия партнёров и показывает актуальные варианты.</div>
-      <div class="feature"><strong>Интеллектуальная сортировка.</strong> Учитываются сумма, срок, акции и рейтинг партнёров.</div>
-      <div class="feature"><strong>Прозрачность.</strong> Мы не выдаём займы — предоставляем справочную информацию и ссылки на партнёров.</div>
-      <div class="feature"><strong>Безопасность.</strong> Сервис не требует регистрации и не хранит персональные данные.</div>
-      <div class="feature"><strong>Адаптивность.</strong> Удобный интерфейс на телефоне и ПК.</div>
-      <div class="feature"><strong>Актуальность.</strong> Данные регулярно обновляются для точности информации.</div>
-    </div>
-  </section>
+<p class="small">
+Информация носит справочный характер. Не является офертой.  
+Все условия уточняйте на официальных сайтах партнёров.
+</p>
+</footer>
 
-  <!-- ABOUT / PRIVACY -->
-  <section id="about" class="section">
-    <div class="article">
-      <h4>О сервисе</h4>
-      <p>ФинПодбор — информационная платформа, которая помогает сравнивать условия микрофинансовых организаций и переходить на официальные сайты партнёров. Решения о выдаче займа принимаются непосредственно МФО.</p>
-    </div>
+<!-- Privacy modal -->
+<div id="privacy" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('privacy')">&times;</span>
+<h2>Политика конфиденциальности</h2>
+<p>Сайт не собирает и не обрабатывает персональные данные пользователей.</p>
+<p>Все переходы ведут на официальные сайты партнёров.</p>
+<p>Самозанятый: Округин С.Е.</p>
+</div>
+</div>
 
-    <div class="article" style="margin-top:12px">
-      <h4>Политика конфиденциальности (кратко)</h4>
-      <p>Сервис не собирает персональные данные и не требует регистрации. Все финансовые операции и обработка данных происходят на сайтах партнёров. Используя сервис, вы соглашаетесь с этой политикой.</p>
-    </div>
+<!-- Agreement modal -->
+<div id="agreement" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('agreement')">&times;</span>
+<h2>Пользовательское соглашение</h2>
+<p>Сайт является информационным сервисом и не оказывает финансовых услуг.</p>
+<p>Решение о предоставлении займа принимает финансовая организация.</p>
+<p>Пользователь самостоятельно принимает решение о переходе на сайты партнёров.</p>
+</div>
+</div>
 
-    <div class="article" style="margin-top:12px">
-      <h4>Юридическое предупреждение</h4>
-      <p>Сервис носит информационный характер и не является финансовой организацией. Информация на сайте не является офертой. Перед оформлением внимательно ознакомьтесь с условиями на сайте партнёра.</p>
-    </div>
-  </section>
-
-  <!-- CONTACT / FOOTER INFO -->
-  <section class="section footer" aria-labelledby="contact">
-    <div class="legal">
-      <strong>Контакты:</strong>
-      <div class="contact-row">
-        <div>email: info@mfo.pro</div>
-        <div>Возраст: 18+</div>
-      </div>
-      <div style="margin-top:10px;color:var(--muted)">© 2025 ФинПодбор — информационный сервис. Все права защищены.</div>
-    </div>
-  </section>
-
-</main>
+<script>
+function openModal(id) {
+  document.getElementById(id).style.display = 'block';
+}
+function closeModal(id) {
+  document.getElementById(id).style.display = 'none';
+}
+window.onclick = function(e) {
+  document.querySelectorAll('.modal').forEach(m => {
+    if (e.target === m) m.style.display = 'none';
+  });
+}
+</script>
 
 </body>
 </html>
