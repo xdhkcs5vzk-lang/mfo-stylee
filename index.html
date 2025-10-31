@@ -1,195 +1,262 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Подбор финансовых предложений</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Подбор финансовых решений</title>
+<link rel="icon" href="https://i.imgur.com/w8yRjdW.png">
 
 <style>
+:root {
+  --bg: #f7f9fc;
+  --text: #1d2a33;
+  --sub: #546475;
+  --card: #fff;
+  --accent: #2f6feb;
+  --border: #e0e6ef;
+}
+.dark {
+  --bg: #0f141a;
+  --text: #e9f0f6;
+  --sub: #9db0c2;
+  --card: #18222e;
+  --accent: #508dff;
+  --border: #304154;
+}
 body {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: #f9fafc;
-  color: #2d3a45;
+  font-family: system-ui, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
 }
-
-/* Header */
 header {
-  background: #ffffff;
-  padding: 25px;
+  background: var(--accent);
+  padding: 18px;
   text-align: center;
-  border-bottom: 1px solid #d6dee6;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 22px;
+  color: white;
+  font-size: 20px;
   font-weight: 600;
-  color: #243649;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
-
-/* Container */
+.theme-toggle {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: rgba(255,255,255,0.2);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  color: #fff;
+}
 .container {
-  max-width: 740px;
+  max-width: 720px;
   margin: auto;
-  padding: 20px;
+  padding: 18px;
 }
-
-/* Info block */
 .info {
-  background: #eef5ff;
-  padding: 16px 18px;
-  border-left: 4px solid #5a7bd8;
-  border-radius: 6px;
-  margin-bottom: 25px;
-  font-size: 15px;
-}
-
-/* Offer cards */
-.offer {
-  background: white;
-  border: 1px solid #e2e7ec;
+  background: rgba(46,107,235,0.08);
+  padding: 16px;
   border-radius: 10px;
+  margin-bottom: 25px;
+  font-size:14px;
+}
+.offer-card {
+  background: var(--card);
+  border-radius: 12px;
   padding: 18px;
   display: flex;
   align-items: center;
-  gap: 18px;
-  margin-bottom: 16px;
-  transition: 0.25s ease;
+  gap: 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  border: 1px solid var(--border);
+  animation: fade 0.5s ease;
 }
-
-.offer:hover {
-  border-color: #ccd6e1;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+.offer-card img {
+  width: 55px;
+  height: 55px;
+  border-radius: 12px;
+  object-fit: contain;
+  background: white;
+  border: 1px solid var(--border);
+  padding: 8px;
+  transition: transform .2s;
 }
-
-.offer img {
-  width: 48px;
-  height: 48px;
-  opacity: 0.9;
+.offer-card:hover img {
+  transform: scale(1.07);
 }
-
-.offer h3 {
-  margin: 0 0 6px;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.offer p {
-  margin: 0;
-  font-size: 14px;
-  color: #52606f;
-}
-
-/* Button */
+.offer-info h3 { margin: 0; font-size: 18px; }
+.offer-info p { margin: 4px 0 8px; font-size: 14px; color: var(--sub); }
 .btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 14px;
-  background: #3d7bd9;
+  background: var(--accent);
   color: white;
+  padding: 10px 16px;
   text-decoration: none;
-  font-size: 14px;
   font-weight: 600;
-  border-radius: 6px;
-  transition: 0.25s ease;
-}
-
-.btn:hover {
-  background: #2e66b8;
-}
-
-/* Footer */
-footer {
-  margin-top: 32px;
-  text-align: center;
+  border-radius: 8px;
   font-size: 14px;
-  padding: 20px;
-  color: #667181;
+  display: inline-block;
 }
-
-footer small {
-  display: block;
-  margin-top: 12px;
+.badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.badge {
+  background: var(--card);
+  padding: 6px 10px;
+  border-radius: 8px;
   font-size: 12px;
-  color: #98a2ae;
+  border: 1px solid var(--border);
 }
-
-a.legal {
-  color: #3e6bb7;
-  text-decoration: none;
+h2 { margin-top: 28px; font-size: 18px; }
+.faq {
+  background: var(--card);
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--border);
+  cursor: pointer;
 }
-a.legal:hover {
-  text-decoration: underline;
+.faq p { display: none; color: var(--sub); margin-top:5px; font-size: 14px; }
+footer {
+  text-align: center;
+  padding: 16px;
+  font-size: 13px;
+  color: var(--sub);
 }
+footer a { color: var(--accent); text-decoration: none; }
+.float-cta {
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: #fff;
+  padding: 12px 26px;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  display: none;
+  z-index: 50;
+}
+@keyframes fade { from {opacity:0; transform:translateY(6px)} to {opacity:1; transform:none} }
 </style>
 </head>
 
 <body>
 
 <header>
-  <h1>Подбор финансовых предложений</h1>
+Подбор финансовых решений
+<div class="theme-toggle" onclick="toggleTheme()">🌓</div>
 </header>
 
 <div class="container">
 
 <div class="info">
-Мы предоставляем информацию о финансовых предложениях.  
-Сайт не оказывает финансовые услуги и не принимает решения о выдаче средств.
+Мы подбираем финансовые предложения от проверенных компаний.  
+Не запрашиваем данные, не выдаём займы — вы переходите на официальные сайты.
 </div>
 
-<!-- Offers -->
-<div class="offer">
-  <img src="https://img.icons8.com/ios-filled/50/bank.png" alt="Екапуста">
-  <div>
+<div class="badges">
+  <div class="badge">✅ Проверенные компании</div>
+  <div class="badge">🔒 Безопасные переходы</div>
+  <div class="badge">📄 Официальные сайты</div>
+  <div class="badge">💬 Бесплатный сервис</div>
+</div>
+
+<!-- OFFERS -->
+
+<div class="offer-card">
+  <img src="https://i.imgur.com/P1QxgQ1.png">
+  <div class="offer-info">
     <h3>еКапуста</h3>
-    <p>Онлайн оформление на сайте партнёра</p>
-    <a class="btn" href="https://refk.in/05gxd" target="_blank" rel="noopener noreferrer">Перейти на сайт</a>
+    <p>Оформление онлайн</p>
+    <a class="btn" href="https://refk.in/05gxd" target="_blank">Посмотреть предложение</a>
   </div>
 </div>
 
-<div class="offer">
-  <img src="https://img.icons8.com/ios-filled/50/bank-building.png" alt="МикроЗайм">
-  <div>
+<div class="offer-card">
+  <img src="https://i.imgur.com/1QSfbvx.png">
+  <div class="offer-info">
     <h3>МикроЗайм</h3>
-    <p>Минимум документов, решение онлайн</p>
-    <a class="btn" href="https://refk.in/05h9h" target="_blank" rel="noopener noreferrer">Перейти на сайт</a>
+    <p>Минимум данных</p>
+    <a class="btn" href="https://refk.in/05h9h" target="_blank">Посмотреть предложение</a>
   </div>
 </div>
 
-<div class="offer">
-  <img src="https://img.icons8.com/ios-filled/50/safe.png" alt="Lime">
-  <div>
+<div class="offer-card">
+  <img src="https://i.imgur.com/dFBfdgi.png">
+  <div class="offer-info">
     <h3>Lime</h3>
-    <p>Проверка заявки онлайн</p>
-    <a class="btn" href="https://refk.in/05h9i" target="_blank" rel="noopener noreferrer">Перейти на сайт</a>
+    <p>Современный сервис</p>
+    <a class="btn" href="https://refk.in/05h9i" target="_blank">Посмотреть предложение</a>
   </div>
 </div>
 
-<div class="offer">
-  <img src="https://img.icons8.com/ios-filled/50/coins.png" alt="Max.Credit">
-  <div>
+<div class="offer-card">
+  <img src="https://i.imgur.com/0ozH3XY.png">
+  <div class="offer-info">
     <h3>Max.Credit</h3>
-    <p>Удобные условия и быстрый процесс</p>
-    <a class="btn" href="https://refk.in/05h9j" target="_blank" rel="noopener noreferrer">Перейти на сайт</a>
+    <p>Гибкие условия</p>
+    <a class="btn" href="https://refk.in/05h9j" target="_blank">Посмотреть предложение</a>
   </div>
 </div>
 
-<div class="offer">
-  <img src="https://img.icons8.com/ios-filled/50/rocket.png" alt="Rocketman">
-  <div>
+<div class="offer-card">
+  <img src="https://i.imgur.com/95wT54v.png">
+  <div class="offer-info">
     <h3>Rocketman</h3>
-    <p>Оформление на официальном сайте компании</p>
-    <a class="btn" href="https://refk.in/05h9k" target="_blank" rel="noopener noreferrer">Перейти на сайт</a>
+    <p>Быстрое рассмотрение</p>
+    <a class="btn" href="https://refk.in/05h9k" target="_blank">Посмотреть предложение</a>
   </div>
 </div>
+
+<h2>Почему можно доверять</h2>
+<p>Мы не посредники и не кредиторы — это информационный сервис.</p>
+
+<ul style="color:var(--sub);line-height:1.6;font-size:14px;">
+<li>Работаем официально</li>
+<li>Только прямые ссылки на сайты компаний</li>
+li>Не собираем личные данные</li>
+<li>Прозрачность и безопасность</li>
+</ul>
+
+<h2>Частые вопросы</h2>
+
+<div class="faq" onclick="toggleFaq(this)">Зачем вы это делаете?
+<p>Мы — информационный сервис. Компании оплачивают размещение, для вас всё бесплатно.</p>
+</div>
+
+<div class="faq" onclick="toggleFaq(this)">Почему вы не берёте паспорт/телефон?
+<p>Мы не обрабатываем заявки — только направляем на официальные сайты.</p>
+</div>
+
+<div class="faq" onclick="toggleFaq(this)">Это безопасно?
+<p>Да. Все ссылки ведут на лицензированные финансовые организации.</p>
+</div>
+
+</div>
+
+<a class="float-cta" id="floatBtn" href="#top">Подобрать предложение</a>
 
 <footer>
-  <div>Самозанятый — Округин С.Е.</div>
-  <div>Тел.: +7 (901) 555-44-22 | Email: info@mail.ru</div>
-  <small>Информация не является публичной офертой.<br>Проверьте условия на сайте партнёра.</small>
+Самозанятый: Округин С.Е. · Москва, РФ<br><br>
+<a href="#">Политика конфиденциальности</a> · 
+<a href="#">Пользовательское соглашение</a>
+<br><br>
+<small>Информация справочная. Не является финансовой услугой.</small>
 </footer>
 
-</div>
+<script>
+function toggleFaq(el){el.querySelector("p").style.display=el.querySelector("p").style.display==="block"?"none":"block";}
+function toggleTheme(){document.body.classList.toggle("dark");}
+window.addEventListener("scroll",()=>{document.getElementById("floatBtn").style.display=scrollY>350?"block":"none";});
+</script>
+
 </body>
 </html>
