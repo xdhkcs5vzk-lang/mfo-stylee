@@ -4,41 +4,50 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Подбор финансовых предложений онлайн</title>
+<meta name="description" content="Информационный сервис для подбора микрофинансирования и кредитов. Не выдаем займы, помогаем найти лучшие предложения онлайн.">
 
 <style>
+/* Основные стили */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #f5f8fc;
+  color: #333;
 }
+
 header {
   background: #2b476d;
   padding: 20px;
   text-align: center;
   color: white;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
 }
-.container {
+
+main.container {
   max-width: 650px;
   margin: auto;
   padding: 20px;
 }
-.card {
+
+section.card {
   background: #fff;
   border-radius: 10px;
   padding: 18px;
   margin-bottom: 15px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.08);
 }
-.card h3 {
+
+section.card h2 {
   margin-top: 0;
   color: #274863;
 }
-.card p {
+
+section.card p {
   font-size: 14px;
   color: #555;
 }
+
 .btn {
   display: inline-block;
   width: 100%;
@@ -49,7 +58,13 @@ header {
   text-decoration: none;
   font-weight: bold;
   border-radius: 8px;
+  transition: background 0.3s;
 }
+
+.btn:hover {
+  background: #3d8b5e;
+}
+
 .info-block {
   font-size: 14px;
   background: #eef4ff;
@@ -57,6 +72,7 @@ header {
   border-radius: 8px;
   margin-bottom: 20px;
 }
+
 footer {
   background: #e9eef3;
   padding: 20px;
@@ -65,16 +81,22 @@ footer {
   border-top: 1px solid #cad4df;
   margin-top: 30px;
 }
+
 a.links {
   color: #2b476d;
   text-decoration: none;
 }
+
+a.links:hover {
+  text-decoration: underline;
+}
+
 .small {
   font-size: 11px;
   color: #777;
 }
 
-/* Modal windows */
+/* Модальные окна */
 .modal {
   display: none;
   position: fixed;
@@ -83,14 +105,17 @@ a.links {
   width: 100%; height: 100%;
   background: rgba(0,0,0,0.55);
 }
+
 .modal-content {
   background: #fff;
+  width: 90%;
   max-width: 500px;
   margin: 12% auto;
   padding: 20px;
   border-radius: 10px;
   line-height: 1.6;
 }
+
 .close {
   float: right;
   font-size: 22px;
@@ -101,46 +126,48 @@ a.links {
 
 <body>
 
-<header>Онлайн подбор финансовых предложений</header>
+<header>
+  Онлайн подбор финансовых предложений
+</header>
 
-<div class="container">
+<main class="container">
 
 <div class="info-block">
-Мы — информационный сервис. Помогаем подобрать предложения микрофинансирования и кредитования.  
-Не выдаём займы и не принимаем решения по заявкам.
+  Мы — информационный сервис. Помогаем подобрать предложения микрофинансирования и кредитования.  
+  Не выдаём займы и не принимаем решения по заявкам.
 </div>
 
-<div class="card">
-<h3>еКапуста</h3>
+<section class="card">
+<h2>еКапуста</h2>
 <p>Онлайн оформление. Решение на сайте партнёра</p>
-<a class="btn" href="https://refk.in/05gxd" target="_blank">Перейти на сайт</a>
-</div>
+<a class="btn" href="https://refk.in/05gxd" target="_blank" rel="noopener noreferrer" aria-label="Перейти на сайт еКапуста">Перейти на сайт</a>
+</section>
 
-<div class="card">
-<h3>МикроЗайм</h3>
+<section class="card">
+<h2>МикроЗайм</h2>
 <p>Минимум документов. Переход на официальный сайт</p>
-<a class="btn" href="https://refk.in/05h9h" target="_blank">Перейти на сайт</a>
-</div>
+<a class="btn" href="https://refk.in/05h9h" target="_blank" rel="noopener noreferrer" aria-label="Перейти на сайт МикроЗайм">Перейти на сайт</a>
+</section>
 
-<div class="card">
-<h3>Lime</h3>
+<section class="card">
+<h2>Lime</h2>
 <p>Рассмотрение и оформление онлайн</p>
-<a class="btn" href="https://refk.in/05h9i" target="_blank">Перейти на сайт</a>
-</div>
+<a class="btn" href="https://refk.in/05h9i" target="_blank" rel="noopener noreferrer" aria-label="Перейти на сайт Lime">Перейти на сайт</a>
+</section>
 
-<div class="card">
-<h3>Max.Credit</h3>
+<section class="card">
+<h2>Max.Credit</h2>
 <p>Удобные условия погашения</p>
-<a class="btn" href="https://refk.in/05h9j" target="_blank">Перейти на сайт</a>
-</div>
+<a class="btn" href="https://refk.in/05h9j" target="_blank" rel="noopener noreferrer" aria-label="Перейти на сайт Max.Credit">Перейти на сайт</a>
+</section>
 
-<div class="card">
-<h3>Rocketman</h3>
+<section class="card">
+<h2>Rocketman</h2>
 <p>Переход на официальный сайт компании</p>
-<a class="btn" href="https://refk.in/05h9k" target="_blank">Перейти на сайт</a>
-</div>
+<a class="btn" href="https://refk.in/05h9k" target="_blank" rel="noopener noreferrer" aria-label="Перейти на сайт Rocketman">Перейти на сайт</a>
+</section>
 
-</div>
+</main>
 
 <footer>
 <p><strong>Самозанятый: Округин С.Е.</strong></p>
