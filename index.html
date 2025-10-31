@@ -1,125 +1,126 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Подбор финансовых предложений онлайн</title>
-<meta name="description" content="Информационный сервис для подбора микрофинансирования и кредитов. Не выдаем займы, помогаем найти лучшие предложения онлайн.">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Подбор финансовых предложений</title>
 
 <style>
-/* Основные стили */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f8fc;
-  color: #333;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f9fafc;
+  color: #2d3a45;
 }
 
+/* Header */
 header {
-  background: #2b476d;
-  padding: 20px;
+  background: #ffffff;
+  padding: 25px;
   text-align: center;
-  color: white;
-  font-size: 24px;
-  font-weight: 700;
+  border-bottom: 1px solid #d6dee6;
 }
 
-main.container {
-  max-width: 650px;
+header h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #243649;
+}
+
+/* Container */
+.container {
+  max-width: 740px;
   margin: auto;
   padding: 20px;
 }
 
-section.card {
-  background: #fff;
+/* Info block */
+.info {
+  background: #eef5ff;
+  padding: 16px 18px;
+  border-left: 4px solid #5a7bd8;
+  border-radius: 6px;
+  margin-bottom: 25px;
+  font-size: 15px;
+}
+
+/* Offer cards */
+.offer {
+  background: white;
+  border: 1px solid #e2e7ec;
   border-radius: 10px;
   padding: 18px;
-  margin-bottom: 15px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 16px;
+  transition: 0.25s ease;
 }
 
-section.card h2 {
-  margin-top: 0;
-  color: #274863;
+.offer:hover {
+  border-color: #ccd6e1;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
 }
 
-section.card p {
+.offer img {
+  width: 48px;
+  height: 48px;
+  opacity: 0.9;
+}
+
+.offer h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.offer p {
+  margin: 0;
   font-size: 14px;
-  color: #555;
+  color: #52606f;
 }
 
+/* Button */
 .btn {
   display: inline-block;
-  width: 100%;
-  text-align: center;
-  padding: 12px;
-  background: #4ba96f;
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: #3d7bd9;
   color: white;
   text-decoration: none;
-  font-weight: bold;
-  border-radius: 8px;
-  transition: background 0.3s;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: 0.25s ease;
 }
 
 .btn:hover {
-  background: #3d8b5e;
+  background: #2e66b8;
 }
 
-.info-block {
-  font-size: 14px;
-  background: #eef4ff;
-  padding: 14px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
+/* Footer */
 footer {
-  background: #e9eef3;
-  padding: 20px;
+  margin-top: 32px;
   text-align: center;
-  font-size: 13px;
-  border-top: 1px solid #cad4df;
-  margin-top: 30px;
+  font-size: 14px;
+  padding: 20px;
+  color: #667181;
 }
 
-a.links {
-  color: #2b476d;
+footer small {
+  display: block;
+  margin-top: 12px;
+  font-size: 12px;
+  color: #98a2ae;
+}
+
+a.legal {
+  color: #3e6bb7;
   text-decoration: none;
 }
-
-a.links:hover {
+a.legal:hover {
   text-decoration: underline;
-}
-
-.small {
-  font-size: 11px;
-  color: #777;
-}
-
-/* Модальные окна */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.55);
-}
-
-.modal-content {
-  background: #fff;
-  width: 90%;
-  max-width: 500px;
-  margin: 12% auto;
-  padding: 20px;
-  border-radius: 10px;
-  line-height: 1.6;
-}
-
-.close {
-  float: right;
-  font-size: 22px;
-  cursor: pointer;
 }
 </style>
 </head>
@@ -127,99 +128,68 @@ a.links:hover {
 <body>
 
 <header>
-  Онлайн подбор финансовых предложений
+  <h1>Подбор финансовых предложений</h1>
 </header>
 
-<main class="container">
+<div class="container">
 
-<div class="info-block">
-  Мы — информационный сервис. Помогаем подобрать предложения микрофинансирования и кредитования.  
-  Не выдаём займы и не принимаем решения по заявкам.
+<div class="info">
+Мы предоставляем информацию о финансовых предложениях.  
+Сайт не оказывает финансовые услуги и не принимает решения о выдаче средств.
 </div>
 
-<section class="card">
-<h2>еКапуста</h2>
-<p>Онлайн оформление. Решение на сайте партнёра</p>
-<a class="btn" href="https://refk.in/05gxd" target="_blank" rel="noopener noreferrer" aria-label="Перейти на сайт еКапуста">Перейти на сайт</a>
-</section>
+<!-- Offers -->
+<div class="offer">
+  <img src="https://img.icons8.com/ios-filled/50/bank.png" alt="Екапуста">
+  <div>
+    <h3>еКапуста</h3>
+    <p>Онлайн оформление на сайте партнёра</p>
+    <a class="btn" href="https://refk.in/05gxd" target="_blank" rel="noopener noreferrer">Перейти на сайт</a>
+  </div>
+</div>
 
-<section class="card">
-<h2>МикроЗайм</h2>
-<p>Минимум документов. Переход на официальный сайт</p>
-<a class="btn" href="https://refk.in/05h9h" target="_blank" rel="noopener noreferrer" aria-label="Перейти на сайт МикроЗайм">Перейти на сайт</a>
-</section>
+<div class="offer">
+  <img src="https://img.icons8.com/ios-filled/50/bank-building.png" alt="МикроЗайм">
+  <div>
+    <h3>МикроЗайм</h3>
+    <p>Минимум документов, решение онлайн</p>
+    <a class="btn" href="https://refk.in/05h9h" target="_blank" rel="noopener noreferrer">Перейти на сайт</a>
+  </div>
+</div>
 
-<section class="card">
-<h2>Lime</h2>
-<p>Рассмотрение и оформление онлайн</p>
-<a class="btn" href="https://refk.in/05h9i" target="_blank" rel="noopener noreferrer" aria-label="Перейти на сайт Lime">Перейти на сайт</a>
-</section>
+<div class="offer">
+  <img src="https://img.icons8.com/ios-filled/50/safe.png" alt="Lime">
+  <div>
+    <h3>Lime</h3>
+    <p>Проверка заявки онлайн</p>
+    <a class="btn" href="https://refk.in/05h9i" target="_blank" rel="noopener noreferrer">Перейти на сайт</a>
+  </div>
+</div>
 
-<section class="card">
-<h2>Max.Credit</h2>
-<p>Удобные условия погашения</p>
-<a class="btn" href="https://refk.in/05h9j" target="_blank" rel="noopener noreferrer" aria-label="Перейти на сайт Max.Credit">Перейти на сайт</a>
-</section>
+<div class="offer">
+  <img src="https://img.icons8.com/ios-filled/50/coins.png" alt="Max.Credit">
+  <div>
+    <h3>Max.Credit</h3>
+    <p>Удобные условия и быстрый процесс</p>
+    <a class="btn" href="https://refk.in/05h9j" target="_blank" rel="noopener noreferrer">Перейти на сайт</a>
+  </div>
+</div>
 
-<section class="card">
-<h2>Rocketman</h2>
-<p>Переход на официальный сайт компании</p>
-<a class="btn" href="https://refk.in/05h9k" target="_blank" rel="noopener noreferrer" aria-label="Перейти на сайт Rocketman">Перейти на сайт</a>
-</section>
-
-</main>
+<div class="offer">
+  <img src="https://img.icons8.com/ios-filled/50/rocket.png" alt="Rocketman">
+  <div>
+    <h3>Rocketman</h3>
+    <p>Оформление на официальном сайте компании</p>
+    <a class="btn" href="https://refk.in/05h9k" target="_blank" rel="noopener noreferrer">Перейти на сайт</a>
+  </div>
+</div>
 
 <footer>
-<p><strong>Самозанятый: Округин С.Е.</strong></p>
-<p>Тел.: +7 (901) 555-44-22 | Email: info@mail.ru</p>
-<p>Москва, Россия</p>
-
-<p>
-<a class="links" href="#" onclick="openModal('privacy')">Политика конфиденциальности</a> |
-<a class="links" href="#" onclick="openModal('agreement')">Пользовательское соглашение</a>
-</p>
-
-<p class="small">
-Информация носит справочный характер. Не является офертой.  
-Все условия уточняйте на официальных сайтах партнёров.
-</p>
+  <div>Самозанятый — Округин С.Е.</div>
+  <div>Тел.: +7 (901) 555-44-22 | Email: info@mail.ru</div>
+  <small>Информация не является публичной офертой.<br>Проверьте условия на сайте партнёра.</small>
 </footer>
 
-<!-- Privacy modal -->
-<div id="privacy" class="modal">
-<div class="modal-content">
-<span class="close" onclick="closeModal('privacy')">&times;</span>
-<h2>Политика конфиденциальности</h2>
-<p>Сайт не собирает и не обрабатывает персональные данные пользователей.</p>
-<p>Все переходы ведут на официальные сайты партнёров.</p>
-<p>Самозанятый: Округин С.Е.</p>
 </div>
-</div>
-
-<!-- Agreement modal -->
-<div id="agreement" class="modal">
-<div class="modal-content">
-<span class="close" onclick="closeModal('agreement')">&times;</span>
-<h2>Пользовательское соглашение</h2>
-<p>Сайт является информационным сервисом и не оказывает финансовых услуг.</p>
-<p>Решение о предоставлении займа принимает финансовая организация.</p>
-<p>Пользователь самостоятельно принимает решение о переходе на сайты партнёров.</p>
-</div>
-</div>
-
-<script>
-function openModal(id) {
-  document.getElementById(id).style.display = 'block';
-}
-function closeModal(id) {
-  document.getElementById(id).style.display = 'none';
-}
-window.onclick = function(e) {
-  document.querySelectorAll('.modal').forEach(m => {
-    if (e.target === m) m.style.display = 'none';
-  });
-}
-</script>
-
 </body>
 </html>
